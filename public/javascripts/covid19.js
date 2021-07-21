@@ -12,7 +12,7 @@ document.querySelector('#buttonLoad').addEventListener('click', () => {
 });
 
 async function getCovidCountries() {
-    const response = await fetch('/covidcountries');
+    const response = await fetch('/covid19/covidcountries');
     const data = await response.json();
     let covidObj = data[0];
 
@@ -36,7 +36,7 @@ async function getCovidCountries() {
 };
 
 async function getCovidImage() {
-    const response = await fetch('/covidimage');
+    const response = await fetch('/covid19/covidimage');
     const data = await response.json();
     const items = data.value;
     let index = Math.floor(Math.random() * items.length);
