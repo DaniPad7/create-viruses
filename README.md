@@ -5,7 +5,7 @@ learns new knowledge about viruses that improves their health and social practic
 
 <h4>Goals:</h4>
 <ol>
-  <li>Learn to implement authorization with cookies.</li>
+  <li>Learn to implement authorization with JSON Web Tokens.</li>
   <li>Learn to implement authentication with a login service and MongoDB</li>
   <li>Learn to apply CRUD operations to MongoDB</li>
   <li>Improve my Asynchronous operations with JavaScript</li>
