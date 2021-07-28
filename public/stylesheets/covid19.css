@@ -29,6 +29,29 @@ h1 {
   font-family: "Concert One", cursive;
 }
 
+#date-form {
+  padding: 50px 5% 50px 5%;
+  margin: auto;
+}
+
+label {
+  margin: 1vh;
+  padding: 2vh 2vw;
+  border-radius: 2mm;
+}
+
+input[type="date"] {
+  margin-top: 1vw;
+  background-color: beige;
+  font-size: larger;
+  height: 90px;
+  width: 50mm;
+  padding: 3mm;
+  font-family: "Concert One", cursive;
+  border-color: ivory;
+  border-radius: 30mm;
+}
+
 .generator {
   padding: 2rem;
   text-align: center;

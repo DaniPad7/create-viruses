@@ -3,6 +3,7 @@ if (process.env.NODE_ENV !== 'production')
 
 const express = require('express');
 const logger = require('morgan');
+const jwt = require('jsonwebtoken');
 const logRouter = require('./routes/login.routes');
 const cov19Router = require('./routes/covid19.routes');
 const pubRouter = require('./routes/public.routes');
@@ -11,17 +12,16 @@ const app = express();
 app.set('views', './views');
 app.set('view engine', 'pug');
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+//for cookies npm install -S cookie-parser
+//for scaffold npm install --S express-scaffold
+
 app.use(logger('dev'));
 app.use(express.static('public'));
 app.use('/covid19', cov19Router);
 app.use('/public', pubRouter);
-app.use('/', logRouter);
-
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
-//for cookies npm install -S cookie-parser
-//for scaffold npm install --S express-scaffold
-
+app.use('/auth', logRouter);
 
 //Ok we can use res.render to render a pug with script src = ${http:localhost}
 //one of our own get endpoint to return a JS file with res.sendFile(path,options, fn)

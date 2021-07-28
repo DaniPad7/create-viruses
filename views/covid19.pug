@@ -10,10 +10,13 @@ html(lang="en")
   body
     section.generator
       h1 Covid-19 Details Generator
+      form#date-form
+        label(for="covid-date") Enter a date from 2020
+        input#covid-date(type="date", name="date")
 
       button#buttonLoad Retrieve Details
       div#covidWrapper
-      p HELLO THERE
+      button#testForm HELLO THERE
 
     script(src="http://localhost:3000/public/scripts")
 

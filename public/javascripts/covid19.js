@@ -11,8 +11,23 @@ document.querySelector('#buttonLoad').addEventListener('click', () => {
     getCovidImage();
 });
 
+document.querySelector('#testForm').addEventListener('click', () => {
+    console.log();
+});
+
 async function getCovidCountries() {
-    const response = await fetch('/covid19/covidcountries');
+    var dateParam = {
+        date: document.getElementById('covid-date').value
+    };
+    console.log("here it is in param " + dateParam.date);
+        
+    const response = await fetch('/covid19/covidcountries', {
+        "method": 'POST',
+        "headers": {
+            'Content-Type': 'application/json'
+        },
+        "body": JSON.stringify(dateParam)
+    });
     const data = await response.json();
     let covidObj = data[0];
 
@@ -27,11 +42,15 @@ async function getCovidCountries() {
             document.querySelector(`#${key}`).remove();
 
         var li = document.createElement('li');
-        li.innerText = `${key} : ${covidObj[key]} people`;
+        if(key != 'date')
+            li.innerText = `${key.toUpperCase()} : ${covidObj[key]} people`;
+        else
+            li.innerText = `${key.toUpperCase()} : ${covidObj[key]}`;
+        
         li.id = `${key}`;
         document.querySelector('#covidWrapper').appendChild(li);
     }
-    console.log(covidObj.date);
+    console.log('After the response: ' + covidObj.date);
     document.querySelector('#covidDate').textContent = covidObj.date;
 };
 

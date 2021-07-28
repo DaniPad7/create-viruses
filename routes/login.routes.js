@@ -8,11 +8,9 @@ const loginRouter = express.Router();
 //     response.sendFile('index.html');
 // });
 
-loginRouter.post('/login', (request, response) => {
-    let username = request.body.user;
-    let password = request.bosy.password;
-    console.log(`Username = ${username}, password is ${password}`);
-    response.end('yes');
+loginRouter.post('/login', (req, res) => {
+    
+
 });
 
 module.exports = loginRouter;

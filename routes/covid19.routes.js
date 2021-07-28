@@ -19,12 +19,13 @@ covid19Router.get('/covidimage', async (request, response) => {
     });
 
     const covidImageResponse = await fetchApi.json();
-    console.log(covidImageResponse);
     response.json(covidImageResponse);
 });
 
-covid19Router.get('/covidcountries', async (request, response) => {
-    let date = '2020-07-21';//request.query;//2020-07-21 make sure to console.log this
+covid19Router.post('/covidcountries', async (request, response) => {
+    let date = request.body.date || '2020-07-21';//request.query;//2020-07-21 make sure to console.log this
+    console.log(`Here is in covidcountries ${date}`);
+    console.log(`Type is ${request.headers['content-type']}`);
     //a;so request.param() is very versatile asw ell
     const fetchApi = await fetch(`https://covid-19-data.p.rapidapi.com/report/totals?date=${date}`, {
         "method": "GET",
