@@ -4,7 +4,8 @@ const express = require('express');
 const publicRouter = express.Router();
 const path = require('path');
 //sends a css file
-publicRouter.get('/style', function(req, res) {
+publicRouter.get('/style/:number', function(req, res) {
+    const num = Number(req.params.number);
     const options = {
         root: path.join(__dirname, '../public'),
         dotfiles: 'deny',
@@ -14,11 +15,25 @@ publicRouter.get('/style', function(req, res) {
         }
     };
 
-    const fileName = '/stylesheets/covid19.css';
-    res.sendFile(fileName, options);
+    let fileName;
+    switch(num) {
+        case 1:
+            fileName = '/stylesheets/covid19.css';
+            res.sendFile(fileName, options);
+            break;
+        case 2:
+            fileName = '/stylesheets/home.css';
+            res.sendFile(fileName, options);
+            break;
+        default:
+            res.status(404).send('404 Not Found');
+            break;
+    }
+    
 });
 //sends a JS file
-publicRouter.get('/scripts', function(req, res) {
+publicRouter.get('/scripts/:number', function(req, res) {
+    const num = Number(req.params.number);
     const options = {
         root: path.join(__dirname, '../public'),
         dotfiles: 'deny',
@@ -27,8 +42,19 @@ publicRouter.get('/scripts', function(req, res) {
             'x-sent': true
         }
     };
-    const fileName = '/javascripts/covid19.js';
-    res.sendFile(fileName, options);
+    let fileName;
+    switch(num) {
+        case 1:
+            fileName = '/javascripts/covid19.js';
+            res.sendFile(fileName, options);
+            break;
+        case 2:
+            fileName = '/javascripts/home.js';
+            res.sendFile(fileName, options);
+            break;
+        default:
+            res.status(404).send('404 Not Found');
+    }
 });
 //sends jpg files
 publicRouter.get('/image/:number', function(req, res) {

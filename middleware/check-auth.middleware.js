@@ -14,10 +14,9 @@ function authenticateJWT(req, res, next) {
             req.user = user;
             next();
         });
-
-
     } else {
         res.sendStatus(401);
     }
-
 };
+
+module.exports = authenticateJWT;

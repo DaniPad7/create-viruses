@@ -25,7 +25,7 @@ function refreshNewToken(req, res, next) {
             role: user.role
         }, access_token_secret, { expiresIn: '60m' });
 
-        res.json({ accessToken});
+        res.json({ accessToken });
 
     });
 

@@ -3,7 +3,6 @@ if (process.env.NODE_ENV !== 'production')
 
 const express = require('express');
 const logger = require('morgan');
-const jwt = require('jsonwebtoken');
 const logRouter = require('./routes/login.routes');
 const cov19Router = require('./routes/covid19.routes');
 const pubRouter = require('./routes/public.routes');
