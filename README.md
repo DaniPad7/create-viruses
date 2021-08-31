@@ -1,4 +1,4 @@
-<h3>Create your own viruses!</h3>
+<h3>Discover all about viruses!</h3>
 <p>This is a multi-page web application that utilizes Express and asynchronous JavaScript to create a dynamic UI. By reading about viruses, the user
 learns new knowledge about viruses that improves their health and social practices to combat the spread of disease.</p>
 <p>I am not a biologist but plan to learn valuable information from this.</p>
